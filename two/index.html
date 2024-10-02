@@ -1,43 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glory Olusola - Home</title>
+    <link href="https://bootswatch.com/5/cosmo/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="cv.html">CV</a></li>
-            <li><a href="hobbies.html">Hobbies</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Glory Olusola</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hobbies.html">Hobbies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
+
     <div class="container">
-        <h1>Glory Olusola</h1>
-        <img src="https://gloryolusola.com/_next/image?url=%2Fstatic%2Fimg%2Favatar.jpeg&w=640&q=100"
-            alt="Glory Olusola">
-        <h2>Contact Information</h2>
-        <p>Phone: +358 (0) 450 11 8765</p>
-        <p>Email: golusola@uef.fi</p>
-        <p>Website: <a href="https://gloryolusola.com" target="_blank">gloryolusola.com</a></p>
-        <p>GitHub: <a href="https://github.com/goldenglorys" target="_blank">goldenglorys</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/glory-olusola" target="_blank">glory-olusola</a></p>
-
-        <h2>Brief Description</h2>
-        <p>Computers and computer programs are interesting to me, and so are the networks that linked them together.
-            However, I am most intrigued by their total functioning at a deeper level of abstraction, not as individual
-            component but rather as an overarching system.
-            <br>
-            I have worked on several technologies such as Python, PHP, but one language I believe to be the one true
-            ring to rule them all is JavaScript No other language is capable of being, isomorphic and run on every
-            single device. From Desktop to browser to Mobile down to IoT devices due to the browser wars between
-            Mozilla, Google, Microsoft, and Apple for the past decade, JavaScript has exploded!
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="custom-card card">
+                    <img src="https://gloryolusola.com/_next/image?url=%2Fstatic%2Fimg%2Favatar.jpeg&w=640&q=100" class="card-img-top" alt="Glory Olusola">
+                    <div class="card-body">
+                        <h5 class="card-title">Contact Information</h5>
+                        <ul class="custom-list">
+                            <li><i class="bi bi-telephone"></i> +358 (0) 417 22 8395</li>
+                            <li><i class="bi bi-envelope"></i> golusola@uef.fi</li>
+                            <li><i class="bi bi-globe"></i> <a href="https://gloryolusola.com" class="custom-link">gloryolusola.com</a></li>
+                            <li><i class="bi bi-github"></i> <a href="https://github.com/goldenglorys" class="custom-link">goldenglorys</a></li>
+                            <li><i class="bi bi-linkedin"></i> <a href="https://linkedin.com/in/glory-olusola" class="custom-link">glory-olusola</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h1 class="section-heading">Glory Olusola</h1>
+                <div class="custom-card card mb-4">
+                    <div class="card-body">
+                        <h2 class="section-heading">About Me</h2>
+                        <p class="lead">Computers and computer programs are interesting to me, and so are the networks that linked them together.
+                            However, I am most intrigued by their total functioning at a deeper level of abstraction, not as individual
+                            component but rather as an overarching system.
+                            <br><br>
+                            I have worked on several technologies such as Python, PHP, but one language I believe to be the one true
+                            ring to rule them all is JavaScript No other language is capable of being, isomorphic and run on every
+                            single device. From Desktop to browser to Mobile down to IoT devices due to the browser wars between
+                            Mozilla, Google, Microsoft, and Apple for the past decade, JavaScript has exploded!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

@@ -1,48 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glory Olusola - Hobbies</title>
+    <link href="https://bootswatch.com/5/cosmo/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="cv.html">CV</a></li>
-            <li><a href="hobbies.html">Hobbies</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Glory Olusola</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="hobbies.html">Hobbies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
+
     <div class="container">
-        <h1>Hobbies & Interests</h1>
-        <ul>
-            <li>IoT Development</li>
-            <li>Big Data Analytics</li>
-            <li>Machine Learning</li>
-            <li>Robotics (Member of UeF Robotics Club)</li>
-            <li>Information Security</li>
-            <li>Distributed Systems</li>
-            <li>Open Source Software Development</li>
-            <li>Emerging Computing Paradigms</li>
-        </ul>
-
-        <h2>Featured Video: Voyager</h2>
-        <p>Human ingenuity in action:</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/_CPxe8yql0Q?si=6259BAB_a2twbrIQ"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <h2>zod Playlist</h2>
-        <iframe className="rounded-xl"
-            src="https://open.spotify.com/embed/playlist/46qKoBZYr8ySSqa7PTEpKW?utm_source=generator&theme=0"
-            width="43%" height="352" frameBorder="0" allowFullScreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <h1 class="section-heading">Hobbies & Interests</h1>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="custom-card card">
+                    <div class="card-body">
+                        <h2 class="section-heading">Technical Interests</h2>
+                        <ul class="custom-list">
+                            <li>IoT Development</li>
+                            <li>Big Data Analytics</li>
+                            <li>Machine Learning</li>
+                            <li>Robotics (Member of UeF Robotics Club)</li>
+                            <li>Information Security</li>
+                            <li>Distributed Systems</li>
+                            <li>Open Source Software Development</li>
+                            <li>Emerging Computing Paradigms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="custom-card card">
+                    <div class="card-body">
+                        <h2 class="section-heading">Featured Project: Voyager</h2>
+                        <i>Human ingenuity in action:</i>
+                        <div class="ratio ratio-16x9">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/_CPxe8yql0Q?si=6259BAB_a2twbrIQ"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="custom-card card">
+                    <div class="card-body">
+                        <h2 class="section-heading">zod playlist</h2>
+                        <div class="ratio ratio-21x9">
+                            <iframe className="rounded-xl"
+                            src="https://open.spotify.com/embed/playlist/46qKoBZYr8ySSqa7PTEpKW?utm_source=generator&theme=0"
+                            width="43%" height="352" frameBorder="0" allowFullScreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
