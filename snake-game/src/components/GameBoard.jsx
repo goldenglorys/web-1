@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // Helper function to generate random food position
 const getRandomPosition = () => ({
@@ -12,6 +12,7 @@ const GameBoard = () => {
   const [food, setFood] = useState(getRandomPosition());
   const [direction, setDirection] = useState({ x: 0, y: -1 });
   const [isGameOver, setIsGameOver] = useState(false);
+  const [score, setScore] = useState(0);
 
   // Handle direction change with arrow keys
   useEffect(() => {
@@ -49,6 +50,7 @@ const GameBoard = () => {
       // Check for food collision
       if (newHead.x === food.x && newHead.y === food.y) {
         setFood(getRandomPosition());
+        setScore(score + 3); // Increment score by 3 on food consumption
       } else {
         newSnake.pop(); // Remove last segment if no food collision
       }
@@ -79,7 +81,7 @@ const GameBoard = () => {
 
     const intervalId = setInterval(moveSnake, 100);
     return () => clearInterval(intervalId);
-  }, [snake, direction, food, isGameOver]);
+  }, [snake, direction, food, isGameOver, score]);
 
   // Restart the game
   const restartGame = () => {
@@ -87,47 +89,54 @@ const GameBoard = () => {
     setFood(getRandomPosition());
     setDirection({ x: 0, y: -1 });
     setIsGameOver(false);
+    setScore(0); // Reset score on game restart
   };
 
   return (
-    <div className="relative w-[90vmin] h-[90vmin] bg-gray-800 grid grid-cols-20 grid-rows-20">
-      {/* Render Snake */}
-      {snake.map((segment, index) => (
+    <div className="relative flex flex-col items-center w-[400px] h-[400px] bg-gray-900 rounded-lg">
+      {/* Display Score */}
+      <div className="text-white text-xl mb-2">Score: {score}</div>
+
+      {/* Game Board */}
+      <div className="relative w-full h-full bg-gray-800 grid grid-cols-20 grid-rows-20 border-2 border-gray-600 rounded-lg">
+        {/* Render Snake */}
+        {snake.map((segment, index) => (
+          <div
+            key={index}
+            className="absolute bg-green-500"
+            style={{
+              width: "5%",
+              height: "5%",
+              left: `${segment.x * 5}%`,
+              top: `${segment.y * 5}%`,
+            }}
+          ></div>
+        ))}
+
+        {/* Render Food with Circle Shape */}
         <div
-          key={index}
-          className="absolute bg-green-500"
+          className="absolute bg-red-500 rounded-full"
           style={{
             width: "5%",
             height: "5%",
-            left: `${segment.x * 5}%`,
-            top: `${segment.y * 5}%`,
+            left: `${food.x * 5}%`,
+            top: `${food.y * 5}%`,
           }}
         ></div>
-      ))}
 
-      {/* Render Food */}
-      <div
-        className="absolute bg-red-500"
-        style={{
-          width: "5%",
-          height: "5%",
-          left: `${food.x * 5}%`,
-          top: `${food.y * 5}%`,
-        }}
-      ></div>
-
-      {/* Game Over Overlay */}
-      {isGameOver && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 bg-opacity-80 text-white text-2xl">
-          <p>Game Over</p>
-          <button
-            onClick={restartGame}
-            className="mt-4 px-4 py-2 bg-blue-600 rounded"
-          >
-            Restart
-          </button>
-        </div>
-      )}
+        {/* Game Over Overlay */}
+        {isGameOver && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 bg-opacity-80 text-white text-2xl">
+            <p>Game Over</p>
+            <button
+              onClick={restartGame}
+              className="mt-4 px-4 py-2 bg-blue-600 rounded"
+            >
+              Restart
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
