@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-// Helper function to generate random food position
 const getRandomPosition = () => ({
   x: Math.floor(Math.random() * 20),
   y: Math.floor(Math.random() * 20),
@@ -14,7 +13,6 @@ const GameBoard = () => {
   const [isGameOver, setIsGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
-  // Handle direction change with arrow keys
   useEffect(() => {
     const handleKeyDown = (event) => {
       switch (event.key) {
@@ -36,7 +34,6 @@ const GameBoard = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [direction]);
 
-  // Update snake position and check for collisions
   useEffect(() => {
     if (isGameOver) return;
 
@@ -47,15 +44,13 @@ const GameBoard = () => {
       };
       const newSnake = [newHead, ...snake];
 
-      // Check for food collision
       if (newHead.x === food.x && newHead.y === food.y) {
         setFood(getRandomPosition());
-        setScore(score + 3); // Increment score by 3 on food consumption
+        setScore(score + 3);
       } else {
-        newSnake.pop(); // Remove last segment if no food collision
+        newSnake.pop();
       }
 
-      // Check for wall collision
       if (
         newHead.x < 0 ||
         newHead.x >= 20 ||
@@ -66,7 +61,6 @@ const GameBoard = () => {
         return;
       }
 
-      // Check for self-collision
       if (
         snake.some(
           (segment) => segment.x === newHead.x && segment.y === newHead.y
@@ -83,23 +77,19 @@ const GameBoard = () => {
     return () => clearInterval(intervalId);
   }, [snake, direction, food, isGameOver, score]);
 
-  // Restart the game
   const restartGame = () => {
     setSnake(initialSnake);
     setFood(getRandomPosition());
     setDirection({ x: 0, y: -1 });
     setIsGameOver(false);
-    setScore(0); // Reset score on game restart
+    setScore(0);
   };
 
   return (
     <div className="relative flex flex-col items-center w-[400px] h-[400px] bg-gray-900 rounded-lg">
-      {/* Display Score */}
       <div className="text-white text-xl mb-2">Score: {score}</div>
 
-      {/* Game Board */}
       <div className="relative w-full h-full bg-gray-800 grid grid-cols-20 grid-rows-20 border-2 border-gray-600 rounded-lg">
-        {/* Render Snake */}
         {snake.map((segment, index) => (
           <div
             key={index}
@@ -113,7 +103,6 @@ const GameBoard = () => {
           ></div>
         ))}
 
-        {/* Render Food with Circle Shape */}
         <div
           className="absolute bg-red-500 rounded-full"
           style={{
@@ -124,7 +113,6 @@ const GameBoard = () => {
           }}
         ></div>
 
-        {/* Game Over Overlay */}
         {isGameOver && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 bg-opacity-80 text-white text-2xl">
             <p>Game Over</p>
